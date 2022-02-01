@@ -1,6 +1,6 @@
-import express from "express";
-import { json, urlencoded } from "body-parser";
-import cors from "cors";
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 
@@ -11,10 +11,10 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 //parse request of content-type application/json
-app.use(json());
+app.use(bodyParser.json());
 
 //parse request of content-type application/x-www-form-urlencod
-app.use(urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //simple router
 app.get("/", (req, res) => {
