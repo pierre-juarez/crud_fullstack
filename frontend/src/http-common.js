@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const base_url = "http://localhost/api/8080";
+// const base_url = "http://localhost:8022/api/apuntes";
+const base_url = "http://localhost:8022/api";
 
 export default axios.create({
   baseURL: base_url,
