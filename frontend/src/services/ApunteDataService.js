@@ -14,7 +14,7 @@ class ApunteDataService {
   }
 
   update(id, data) {
-    return http.get(`/apuntes/${id}`, data);
+    return http.put(`/apuntes/${id}`, data);
   }
 
   delete(id) {

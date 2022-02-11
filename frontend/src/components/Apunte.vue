@@ -44,7 +44,7 @@
     <button class="badge badge-danger mr-2" @click="deleteApunte">
       Delete
     </button>
-    <button class="badge badge-success" type="submit" @click="updateTutorial">
+    <button class="badge badge-success" type="submit" @click="updateApunte">
       Update
     </button>
     <p>{{ message }}</p>
@@ -92,17 +92,18 @@ export default {
           console.error(e);
         });
     },
-    updateTutorial() {
+    updateApunte() {
       ApunteDataService.update(this.currentApunte.id, this.currentApunte)
         .then((response) => {
           console.log(response.data);
+          this.message = "The apunte was updated successfully!";
         })
         .catch((e) => {
           console.error(e);
         });
     },
-    deleteTutorial() {
-      ApunteDataService.delete()
+    deleteApunte() {
+      ApunteDataService.delete(this.currentApunte.id)
         .then((response) => {
           console.log(response.data);
           this.$router.push({ name: "apuntes" });
@@ -114,7 +115,7 @@ export default {
   },
   mounted() {
     this.message = "";
-    this.getApunte(this.$router.params.id);
+    this.getApunte(this.$route.params.id);
   },
 };
 </script>
